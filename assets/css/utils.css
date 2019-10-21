@@ -1,0 +1,97 @@
+/* COLORS */
+.t-color-ffffff {
+    color: #ffffff;
+}
+.t-color-000000 {
+    color: #000000;
+}
+.t-color-d9dcd6 {
+    color : #D9DCD6;
+}
+.t-color-16425b {
+    color: #16425B;
+}
+.t-color-81c3d7 {
+    color: #81c3d7;
+}
+.t-color-3a7ca5 {
+    color: #3a7ca5;
+}
+.t-color-2f6690 {
+    color: #2f6690;
+}
+
+
+/* BACKGROUND COLORS */
+.b-color-ffffff {
+    background-color: #ffffff;
+}
+.b-color-000000 {
+    background-color: #000000;
+}
+.b-color-d9dcd6 {
+    background-color : #D9DCD6;
+}
+.b-color-16425b {
+    background-color: #16425B;
+}
+.b-color-81c3d7 {
+    background-color: #81c3d7;
+}
+.b-color-3a7ca5 {
+    background-color: #3a7ca5;
+}
+.b-color-2f6690 {
+    background-color: #2f6690;
+}
+
+
+/* DISPLAY */
+.d-block {
+    display: block;
+}
+.d-none {
+    display: none;
+}
+.d-flex {
+    display: flex;
+}
+.d-inline-flex {
+    display: inline-flex;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+/* OBJECT FIT */
+.object-contain {
+    object-fit: contain;
+}
+
+
+/* PADDING */
+.p-25 {
+    padding: 25px
+}
+
+/* MARGIN */
+.m-25 {
+    margin: 25px
+}
+.mt-10 {
+    margin-top: 10px;
+} 
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+
+/* CURSORS */
+.c-pointer {
+    cursor: pointer;
+}
+
+/* FONT-WEIGHT */
+.fw-400 {
+    font-weight: 400;
+}

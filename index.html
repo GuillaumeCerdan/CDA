@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Appli CDA</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/utils.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js">
+    </script>
+    <script src="assets/js/script.js">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+    <div ng-app="dataShow" ng-controller="dataCtrl" data-ng-init="init()">
+        <div class="container">
+            <div class="d-flex flex-wrap">
+                <div class="object-flex b-color-3a7ca5 p-25 mt-10 mb-10 c-pointer" ng-repeat="d in data">
+                    <h1>{{d.title}}</h1>
+                    <h4 class="fw-400">{{d.para1}}</h4>
+                    <p>{{d.para2}}</p>
+                    <p>{{d.conclusion}}</p>
+                    <span class="label">{{d.labels}}</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
