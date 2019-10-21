@@ -6,9 +6,12 @@ app.controller("dataCtrl", function($scope, $http) {
 
     var init = function() {
         $http.get('assets/json/data.json').then(function(response) {
-            console.log("response.data : " + JSON.stringify(response.data));
+            angular.forEach(response.data, function(value, key) {
+                value.labels = value.labels.split(', ');
+            });
             $scope.data = response.data;
         });
+        
     }
 
     init();

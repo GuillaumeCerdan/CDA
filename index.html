@@ -30,7 +30,7 @@
                     <h4 class="fw-400">{{d.para1}}</h4>
                     <p>{{d.para2}}</p>
                     <p>{{d.conclusion}}</p>
-                    <span class="label">{{d.labels}}</span>
+                    <span class="label" ng-repeat="v in d.labels">{{v}}</span>
                 </div>
             </div>
         </div>

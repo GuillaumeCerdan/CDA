@@ -2,3 +2,10 @@ body {
     padding: 15px;
     color: #fff;
 }
+
+.label {
+    background-color: #81c3d7;
+    padding: 5px;
+    color: #fff;
+    margin-right: 5px;
+}
