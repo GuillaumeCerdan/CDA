@@ -18,4 +18,3 @@ list_links = [link.string for link in links]
 # Les print
 for link in list_links :
     print(link)
-
