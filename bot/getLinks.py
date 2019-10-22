@@ -52,6 +52,12 @@ for url in listurl:
     with open("donnees.csv", "a", newline='', encoding="utf-8") as fichier:
         writer = csv.writer(fichier)
         for i in range(j):
+            if (i == 0):
+                writer.writerow([30 * "_"])
+                writer.writerow([url.replace(",", "")])
+
             if (list_titles[i] != ""):
-                writer.writerow(str(list_titles[i]))
+                # Caste en String puis caste le tout en Array pour
+                # éviter les , entre chaque lettre
+                writer.writerow([str(list_titles[i]).replace(",", "")])
             i+=1
