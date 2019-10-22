@@ -1,7 +1,36 @@
 body {
-    padding: 15px;
     color: #fff;
 }
+
+.header {
+    height: 80px;
+    background-color: #81c3d7;
+    line-height: 80px;
+    display: flex;
+}
+.header > .items {
+    display: inline-flex;
+}
+.header > .items .item {
+    transition: all .3s ease;
+    width: 120px;
+    height: 100%;
+    text-align: center;
+    background-color: #81c3d7;
+}
+.header > .items .item:hover {
+    background-color: #3a7ca5;
+    transition: all .3s ease;
+}
+.header > .items .item > a {
+    color: #fff;
+}
+.header > .items .item > a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+
 
 .label {
     background-color: #81c3d7;
