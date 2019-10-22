@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 # User Agent
 header = {'User-Agent': 'Mozilla/5.0'}
 
-
+# Traite les urls
 fileToSearch = 'departments.csv'
 tempFile = open( fileToSearch, 'r' )
 listdep = []
@@ -23,7 +23,7 @@ for line in fileinput.input(fileToSearch):
 listurl.pop(0)
 print (listurl)
 
-
+#Parcours les urls
 for url in listurl:
 
     goodurl = "http://www." + url
@@ -46,12 +46,12 @@ for url in listurl:
 
     print(list_titles)
 
-    # Ecriture
+    # Ecriture dans le fichier donnees.csv
     j = len(list_titles)
     i = 0
-    with open("donnees.csv", "w", newline='', encoding="utf-8") as fichier:
+    with open("donnees.csv", "a", newline='', encoding="utf-8") as fichier:
         writer = csv.writer(fichier)
-        while i < j:
+        for i in range(j):
             if (list_titles[i] != ""):
                 writer.writerow(str(list_titles[i]))
             i+=1
