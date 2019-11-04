@@ -4,7 +4,7 @@ import requests
 import sys
 import fileinput
 from bs4 import BeautifulSoup
-import time 
+import time
 
 # User Agent
 header = {'User-Agent': 'Mozilla/5.0'}
@@ -19,7 +19,7 @@ for line in fileinput.input(fileToSearch):
     *_ , ville = line.split(',')
     ville = ville[:-1].replace(' ','-')
     listurl.append(ville.strip('"')+".gouv.fr")
-    
+
 
 listurl.pop(0)
 # print (listurl)
@@ -34,7 +34,7 @@ for url in listurl:
     val.append("Le site scrappé : " + goodurl)
 
     #Url à parcourir
-    # try catch pour verifier si la connection fonctione sinon on passe cette url       
+    # try catch pour verifier si la connection fonctione sinon on passe cette url
     try:
         requete = requests.get(goodurl, headers = header)
         page = requete.content
@@ -42,7 +42,7 @@ for url in listurl:
         # faire relever une erreur afin ce verifier l'url de la prefecture ou autre
         print("erreur de connection")
         continue
-        
+
 
     # Parser html
     soup = BeautifulSoup(page, "html.parser")
@@ -63,7 +63,7 @@ for url in listurl:
         if ("/Publication" == link.attrs['href']) or ("/Publications" == link.attrs['href']) or ("/publication" == link.attrs['href']) or ("/publications" == link.attrs['href']) :
             test_url.append(goodurl+link.attrs["href"])
             break
-        if ( ("publications-r" in link.attrs['href']) or ("Publications-r" in link.attrs['href']) or ("publication-r" in link.attrs['href']) or ("Publication-r" in link.attrs['href'])): 
+        if ( ("publications-r" in link.attrs['href']) or ("Publications-r" in link.attrs['href']) or ("publication-r" in link.attrs['href']) or ("Publication-r" in link.attrs['href'])):
             test_url.append(goodurl+"/"+link.attrs["href"])
             break
     # print(list_titles)
@@ -76,4 +76,3 @@ for url in listurl:
         writer.writerow('')
 
 print(test_url)
-
