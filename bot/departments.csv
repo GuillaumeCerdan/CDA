@@ -74,7 +74,6 @@ id,region_code,code,name,slug
 73,52,72,Sarthe,sarthe
 74,84,73,Savoie,savoie
 75,84,74,Haute-Savoie,"haute savoie"
-76,11,75,Paris,paris
 77,28,76,Seine-Maritime,"seine maritime"
 78,11,77,Seine-et-Marne,"seine et marne"
 79,11,78,Yvelines,yvelines
@@ -102,9 +101,10 @@ id,region_code,code,name,slug
 101,06,976,Mayotte,mayotte
 102,COM,975,Saint-Pierre-et-Miquelon,"saint pierre et miquelon"
 103,COM,977,Saint-Barthélemy,"saint barthelemy"
+106,COM,986,"Wallis et Futuna","wallis et futuna"
+108,COM,988,Nouvelle-Calédonie,"nouvelle caledonie"
+76,11,75,Paris,paris
+109,COM,989,"Île de Clipperton","ile de clipperton"
 104,COM,978,Saint-Martin,"saint martin"
 105,COM,984,"Terres australes et antarctiques françaises","terres australes et antarctiques francaises"
-106,COM,986,"Wallis et Futuna","wallis et futuna"
 107,COM,987,"Polynésie française","polynesie francaise"
-108,COM,988,Nouvelle-Calédonie,"nouvelle caledonie"
-109,COM,989,"Île de Clipperton","ile de clipperton"

@@ -4,6 +4,7 @@ import requests
 import sys
 import fileinput
 from bs4 import BeautifulSoup
+import time 
 
 # User Agent
 header = {'User-Agent': 'Mozilla/5.0'}
@@ -21,37 +22,58 @@ for line in fileinput.input(fileToSearch):
     
 
 listurl.pop(0)
-print (listurl)
+# print (listurl)
+test_url = []
 
 #Parcours les urls
 for url in listurl:
-
     goodurl = "http://www." + url
 
     print("Le site scrappé : " + goodurl)
+    val = []
+    val.append("Le site scrappé : " + goodurl)
 
     #Url à parcourir
-    requete = requests.get(goodurl, headers = header)
-    page = requete.content
+    # try catch pour verifier si la connection fonctione sinon on passe cette url       
+    try:
+        requete = requests.get(goodurl, headers = header)
+        page = requete.content
+    except:
+        # faire relever une erreur afin ce verifier l'url de la prefecture ou autre
+        print("erreur de connection")
+        continue
+        
 
     # Parser html
     soup = BeautifulSoup(page, "html.parser")
 
     # Tous les liens
-    links = soup.find_all("a")
+    links = soup.find_all("a", href = True)
     titles = soup.find_all("h1")
+    spans = soup.find_all("span")
 
-    #list_links = [link.string for link in links]
+    #mise en place des tableaux avec les liens
+    list_links = [link.string for link in links]
     list_titles = [title.string for title in titles]
+    list_spans = [span.string for span in spans]
 
-    print(list_titles)
+    for link in links:
+        # print (link.text  + ":" + link.attrs["href"])
+        # print(link.attrs['href'])
+        if ("/Publication" == link.attrs['href']) or ("/Publications" == link.attrs['href']) or ("/publication" == link.attrs['href']) or ("/publications" == link.attrs['href']) :
+            test_url.append(goodurl+link.attrs["href"])
+            break
+        if ( ("publications-r" in link.attrs['href']) or ("Publications-r" in link.attrs['href']) or ("publication-r" in link.attrs['href']) or ("Publication-r" in link.attrs['href'])): 
+            test_url.append(goodurl+"/"+link.attrs["href"])
+            break
+    # print(list_titles)
 
     # Ecriture dans le fichier donnees.csv
-    j = len(list_titles)
-    i = 0
     with open("donnees.csv", "a", newline='', encoding="utf-8") as fichier:
         writer = csv.writer(fichier)
-        for i in range(j):
-            if (list_titles[i] != ""):
-                writer.writerow(str(list_titles[i]))
-            i+=1
+        writer.writerow(val)
+        writer.writerow(list_spans)
+        writer.writerow('')
+
+print(test_url)
+
