@@ -16,7 +16,10 @@ time.sleep(1)
 goodurl = "http://www.quevisiter.fr"
 
 #requete = requests.get(goodurl, headers = header)
-requete = requests.get(goodurl)
+requete = requests.get(goodurl, allow_redirects=True)
+
+if requete.history:
+    print("redirigé")
 
 try:
     print(requete.content)
