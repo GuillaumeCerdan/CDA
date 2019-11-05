@@ -61,14 +61,15 @@ for url in listurl:
     for link in links:
         # print (link.text  + ":" + link.attrs["href"])
         # print(link.attrs['href'])
-        if  ("/publication" == link.attrs['href'].lower()) or ("/publications" == link.attrs['href'].lower()) :
+        
+        if  ( "raa" in link.text.lower()) and ("recueil" in link.text.lower()):
             test_url.append(goodurl+link.attrs["href"])
             break
-        if ( ("publications-r" in link.attrs['href'].lower()) or("publication-r" in link.attrs['href'].lower()) 
-        ):
-            test_url.append(goodurl+"/"+link.attrs["href"])
-            break
-    # print(list_titles)
+    #     if ( ("publications-r" in link.attrs['href'].lower()) or("publication-r" in link.attrs['href'].lower()) 
+    #     ):
+    #         test_url.append(goodurl+"/"+link.attrs["href"])
+    #         break
+    # # print(list_titles)
 
     # Ecriture dans le fichier donnees.csv
     with open("donnees.csv", "a", newline='', encoding="utf-8") as fichier:
@@ -76,5 +77,6 @@ for url in listurl:
         writer.writerow(val)
         writer.writerow(list_spans)
         writer.writerow('')
-
+        
 print(test_url)
+print(len(test_url))
