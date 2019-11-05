@@ -7,9 +7,8 @@ from bs4 import BeautifulSoup
 import time
 
 # User Agent
-header = {'User-Agent': 'Mozilla/5.0Chrome'}
+header = {'User-Agent': 'Mozilla/5.0'}
 
-#Parcours les urls
 fileToSearch = 'departments.csv'
 tempFile = open( fileToSearch, 'r' )
 listdep = []
@@ -20,9 +19,37 @@ for line in fileinput.input(fileToSearch):
     ville = ville[:-1].replace(' ','-')
     listurl.append(ville.strip('"')+".gouv.fr")
 
+listurl.pop(0)
 
+bads = set()
+
+#Parcours les urls
 for url in listurl:
+    goodurl = "http://www." + url
 
-    goodurl = "http://www.quevisiter.fr"
+    print("Le site scrappé : " + goodurl)
+
+    try:
+        requete = requests.get(goodurl, headers = header)
+        page = requete.content
+    except:
+        print("erreur de connection")
+        continue
+
+
+    soup = BeautifulSoup(page, "html.parser")
+
+    links = soup.find_all("a", href = True)
+    list_links = [link.string for link in links]
+
+    for link in links:
+        # Trouve tous les liens pour les recueils
+        if "raa" in link.text.lower() and "recueil" in link.text.lower():
+            print("Lien publications : " + str(link.text))
+        else:
+            bads.add(url)
 
     time.sleep(1)
+
+print(bads)
+print(len(bads))
