@@ -47,7 +47,7 @@ for url in listurl:
         if "raa" in link.text.lower() and "recueil" in link.text.lower():
             print("Lien publications : " + str(link.text))
         else:
-            bads.add(url)
+            bads.add(url + " : " + link.text)
 
     time.sleep(1)
 
