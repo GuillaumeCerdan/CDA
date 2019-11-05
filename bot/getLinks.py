@@ -27,6 +27,7 @@ test_url = []
 
 #Parcours les urls
 for url in listurl:
+    time.sleep(1)
     goodurl = "http://www." + url
 
     print("Le site scrappé : " + goodurl)
@@ -60,10 +61,11 @@ for url in listurl:
     for link in links:
         # print (link.text  + ":" + link.attrs["href"])
         # print(link.attrs['href'])
-        if ("/Publication" == link.attrs['href']) or ("/Publications" == link.attrs['href']) or ("/publication" == link.attrs['href']) or ("/publications" == link.attrs['href']) :
+        if  ("/publication" == link.attrs['href'].lower()) or ("/publications" == link.attrs['href'].lower()) :
             test_url.append(goodurl+link.attrs["href"])
             break
-        if ( ("publications-r" in link.attrs['href']) or ("Publications-r" in link.attrs['href']) or ("publication-r" in link.attrs['href']) or ("Publication-r" in link.attrs['href'])):
+        if ( ("publications-r" in link.attrs['href'].lower()) or("publication-r" in link.attrs['href'].lower()) 
+        ):
             test_url.append(goodurl+"/"+link.attrs["href"])
             break
     # print(list_titles)
