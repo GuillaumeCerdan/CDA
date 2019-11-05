@@ -37,6 +37,10 @@ for url in listurl:
 
     try:
         print(requete.status_code)
+        if (requete.status_code == 200):
+            print("Robots.txt - " + url + " opérationnel")
+        else:
+            print("XXXXXXX Robots.txt - " + url + " non opérationnel")
 
     except:
         print("Chais pas")
