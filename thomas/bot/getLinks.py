@@ -14,6 +14,7 @@ fileToSearch = 'departments.csv'
 tempFile = open( fileToSearch, 'r' )
 listdep = []
 listurl = []
+badUrl = set()
 for line in fileinput.input(fileToSearch):
     listdep.append(line)
     *_ , ville = line.split(',')
@@ -42,6 +43,7 @@ for url in listurl:
     except:
         # faire relever une erreur afin ce verifier l'url de la prefecture ou autre
         print("erreur de connection")
+        badUrl.add(goodurl)
         continue
 
 
@@ -59,12 +61,13 @@ for url in listurl:
     list_spans = [span.string for span in spans]
 
     for link in links:
-        # print (link.text  + ":" + link.attrs["href"])
+        # print (link.text  + " = " + link.attrs["href"])
         # print(link.attrs['href'])
         
-        if  ( "raa" in link.text.lower()) and ("recueil" in link.text.lower()):
+        if  ("recueil" in link.text.lower() ) or ("raa" in link.text.lower()):
             test_url.append(goodurl+link.attrs["href"])
             break
+
     #     if ( ("publications-r" in link.attrs['href'].lower()) or("publication-r" in link.attrs['href'].lower()) 
     #     ):
     #         test_url.append(goodurl+"/"+link.attrs["href"])
@@ -77,6 +80,13 @@ for url in listurl:
         writer.writerow(val)
         writer.writerow(list_spans)
         writer.writerow('')
-        
+print("ca marche sur \n")
 print(test_url)
 print(len(test_url))
+print ("ca ne marche pas sur \n")
+print (len(listurl) - len(test_url) )
+listemarchepas = []
+print(badUrl)
+
+
+# manque 5 site

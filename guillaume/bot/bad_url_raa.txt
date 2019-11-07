@@ -1,20 +1,20 @@
-{'cantal.gouv.fr', 
-'hauts-de-seine.gouv.fr', 
-'correze.gouv.fr', 
-'loire-atlantique.gouv.fr', 
-'cote-dor.gouv.fr', 
-'drome.gouv.fr', 
-'ille-et-vilaine.gouv.fr', 
-'cotes-darmor.gouv.fr', 
-'isere.gouv.fr', 
-'ariege.gouv.fr', 
-'charente-maritime.gouv.fr', 
-'nievre.gouv.fr', 
-'bas-rhin.gouv.fr', 
-'haute-loire.gouv.fr', 
-'loir-et-cher.gouv.fr', 
-'hautes-alpes.gouv.fr', 
-'martinique.gouv.fr', 
+{'cantal.gouv.fr', 			RAA : Recueil des actes administratifs
+'hauts-de-seine.gouv.fr', 		Le Recueil des actes administratifs
+'correze.gouv.fr', 			RAA : Recueil des Actes Administratifs
+'loire-atlantique.gouv.fr', 		RAA : Recueil des Actes Administratifs
+'cote-dor.gouv.fr', 			???
+'drome.gouv.fr', 			RAA : Recueil des actes administratifs
+'ille-et-vilaine.gouv.fr', 		non 
+'cotes-darmor.gouv.fr', 		RAA : Recueil des actes administratifs
+'isere.gouv.fr', 			RAA - Recueil des actes administratifs
+'ariege.gouv.fr', 			RAA : Recueil des Actes Administratifs
+'charente-maritime.gouv.fr', 		non
+'nievre.gouv.fr', 			???
+'bas-rhin.gouv.fr', 			RAA - Recueils des actes administratifs
+'haute-loire.gouv.fr', 			???
+'loir-et-cher.gouv.fr', 		RAA : Recueil des Actes Administratifs
+'hautes-alpes.gouv.fr', 		RAA : Recueil des actes administratifs
+'martinique.gouv.fr', 			non
 'corse-du-sud.gouv.fr', 
 'lozere.gouv.fr', 
 'val-de-marne.gouv.fr', 
