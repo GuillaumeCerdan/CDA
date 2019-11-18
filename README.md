@@ -12,3 +12,9 @@ timeout = sec
 
 tupples en python
 tupple unpacking
+
+Visionnage à la main des raa
+site:vaucluse.gouv.fr raa filetype:pdf
+
+Filtrage sur les sélecteurs :
+attr$=.pdf
