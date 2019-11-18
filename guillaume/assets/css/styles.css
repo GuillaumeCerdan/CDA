@@ -20,7 +20,6 @@ body {
 }
 .header > .items .item:hover {
     background-color: #3a7ca5;
-    transition: all .3s ease;
 }
 .header > .items .item > a {
     color: #fff;
