@@ -1,6 +1,5 @@
 import mysql.connector
 
-
 def connectTo(myHost, myUser, myPassword, myDatabase):
     myconnection = mysql.connector.connect(
         host = myHost,
