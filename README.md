@@ -13,9 +13,14 @@ timeout = sec
 tupples en python
 tupple unpacking
 
-doc beautiful soup 
+doc beautiful soup
 https://python.doctor/page-beautifulsoup-html-parser-python-library-xml
 
 voir pour distance livenshtain pour les recherche
 
-faire un controle de coherance 
+faire un controle de coherance
+Visionnage à la main des raa
+site:vaucluse.gouv.fr raa filetype:pdf
+
+Filtrage sur les sélecteurs :
+attr$=.pdf
