@@ -29,14 +29,15 @@ for link in links:
     if ("provence-alpes-cote-dazur" in link.get("href").lower() and not already_passed):
         print("Navigating to : http://www.prefectures-regions.gouv.fr" + link.get("href"))
         try:
-            already_passed = True
             requete.close()
             requete = requests.get("http://www.prefectures-regions.gouv.fr" + link.get("href"), headers = header)
             page = requete.content
             soup = BeautifulSoup(page, "html.parser")
+            already_passed = True
             #pass = True
         except:
             print("erreur de connection 2")
+            
             #pass = False
 
         #if (pass):
