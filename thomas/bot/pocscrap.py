@@ -107,7 +107,6 @@ for link in links:
                     text_link = link.text
                     requete.close()
                     time.sleep(1)
-
                     pdf_url = 'http://www.ardeche.gouv.fr/' + link.get("href")
                     requete = requests.get(pdf_url, headers = header)
                     page = requete.content
