@@ -1,12 +1,5 @@
+import itertools 
 import distance
-
-
-
-
-
-
-
-
 
 # AVEC LAMBDA
 # with open('liste_francais.txt', 'r', encoding='utf8') as file:
@@ -38,11 +31,31 @@ import distance
 #         print(mot)
 
 
-
-# liste_2 = [mot for mot in mylist if distance.nlevenshtein(mot, "chien", method=1) < 0.3]
+# 
+# liste_2 = [mot for mot in mylist if distance.nlevenshtein(mot, "arrêté", method=1) < 0.4]
 # print("le mot : " + str(liste_2))
 
-
-
+# print (liste_2)
 # if mot in mydata:
 #     print("il y est")
+
+
+listemot= []
+mot = ["c", "h", "i", "e", "n"]
+for obj in itertools.permutations(mot):
+    liste = list(obj)
+    listemot.append("".join(liste))
+    print (liste)
+print (listemot)
+alphabet = 'a z e r t y u i o p q s d f g h j k l m w x c v b n'
+tabalpha = alphabet.split(sep=" ")
+print (tabalpha)
+i = 0 
+for j in range (5,7):
+    for obj in itertools.permutations(tabalpha,j):
+        i+=1
+print (i)
+
+
+
+# input()

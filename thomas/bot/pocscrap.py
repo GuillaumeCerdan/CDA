@@ -6,7 +6,7 @@ import logging
 from os import path
 from datetime import date
 i = 0
-logging.basicConfig(filename='logs-ardeche.log', filemode='w', level=logging.INFO)
+logging.basicConfig(filename='logs-ardeche.log', filemode='a', level=logging.INFO)
 header = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36'}
 test = "pas d'url trouver"
 url = "http://www.ardeche.gouv.fr/"
@@ -115,4 +115,5 @@ for link in links:
                         open("pdf_ardeche/" + text_link  + ".pdf", 'wb').write(page)
                         i+=1
 today = date.today()
-logging.info('il y a eu '+ str(i) +' pdf deploye le ' + str(today) + " sur le departement de l'ardeche")                    
+logging.info('il y a eu '+ str(i) +' pdf deploye le ' + str(today) + " sur le departement de l'ardeche")
+

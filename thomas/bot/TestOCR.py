@@ -1,8 +1,7 @@
 from PIL import Image
 import pytesseract
+from pdf2image import convert_from_path
 
-def ocr_core(filename):
-    text = pytesseract.image_to_string(Image.open(filename))
-    return text
+pages = convert_from_path(r'test.pdf', 500)
 
-print(ocr_core('placeholder.png'))
+
