@@ -26,7 +26,7 @@ soup = BeautifulSoup(page, "html.parser")
 links = soup.find_all("a", href = True)
 
 list_links = [link.string for link in links]
-for link in tqdm(links):
+for link in links:
     # print (link.text  + " = " + link.attrs["href"])
     # print(link.attrs['href'])
     
@@ -76,8 +76,8 @@ print("connecter a la liste des liste des RAA")
 # print (links)
 
 list_links = [link.string for link in links]
-listmois = ["janvier 2019","février 2019","mars 2019", "avril 2019","mai 2019","juin 2019","juillet 2019","août 2019","septembre 2019","octobre 2019", "novembre 2019", "décembre 2019"]
-# listmois = ["décembre 2019"]
+# listmois = ["janvier 2019","février 2019","mars 2019", "avril 2019","mai 2019","juin 2019","juillet 2019","août 2019","septembre 2019","octobre 2019", "novembre 2019", "décembre 2019"]
+listmois = ["décembre 2019"]
 
 for link in tqdm(links):
     # print (link.text  + " = " + link.attrs["href"])
