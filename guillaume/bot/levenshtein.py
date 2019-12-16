@@ -1,10 +1,5 @@
 import distance
-
-
-
-
-
-
+from itertools import permutations
 
 
 
@@ -21,7 +16,29 @@ import distance
 # print(sorted(data, key = lambda mot: mot[2]))
 # print(sorted(mylist, key = getLast))
 
+# liste_2 = [mot for mot in mylist if distance.nlevenshtein(mot, "arrêté", method=1) < 0.5]
+# print("le mot : " + str(liste_2))
 
+
+
+# CREE LES ANAGRAMMES
+my_mot = ["c", "h", "i", "e", "n"]
+
+for mot in permutations(my_mot):
+    print("".join(list(mot)))
+
+
+
+
+
+
+
+
+
+
+
+# if mot in mydata:
+#     print("il y est")
 
 
 
@@ -36,13 +53,3 @@ import distance
 # for mot in mylist:
 #     if sorted(mot) == my_mot_sorted:
 #         print(mot)
-
-
-
-# liste_2 = [mot for mot in mylist if distance.nlevenshtein(mot, "chien", method=1) < 0.3]
-# print("le mot : " + str(liste_2))
-
-
-
-# if mot in mydata:
-#     print("il y est")
