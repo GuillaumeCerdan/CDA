@@ -116,4 +116,3 @@ for link in links:
                         i+=1
 today = date.today()
 logging.info('il y a eu '+ str(i) +' pdf deploye le ' + str(today) + " sur le departement de l'ardeche")
-
