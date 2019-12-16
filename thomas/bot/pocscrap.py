@@ -117,4 +117,3 @@ for link in tqdm(links):
                         i+=1
 today = date.today()
 logging.info('il y a eu '+ str(i) +' pdf deploye le ' + str(today) + " sur le departement de l'ardeche")
-

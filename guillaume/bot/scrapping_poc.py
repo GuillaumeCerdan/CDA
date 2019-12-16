@@ -39,5 +39,4 @@ thingsToFind = [[["mots à chercher"], ['sélecteurs']], [["mots à chercher"], 
 urlToPdf = []
 
 for url in urls:
-    i = 0
     urlToPdf.append(connectTo(url))
