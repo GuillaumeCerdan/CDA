@@ -24,10 +24,10 @@ pytesseract.pytesseract.tesseract_cmd = r"D:/programme/Tesseract-OCR/tesseract.e
 
 outputpath = r"temp/"
 
-result = pdf2jpg.convert_pdf2jpg(inputpath, outputpath, dpi=300)#on garde les 300 dpi pour avoir une meilleur qualité 
+result = pdf2jpg.convert_pdf2jpg(inputpath, outputpath, dpi=300) #on garde les 300 dpi pour avoir une meilleur qualité 
 # print(str(result))
 #print("result : " + str(result[0].get("output_jpgfiles")[0]))
-pytesseract.pytesseract.tesseract_cmd = r"D:/programme/Tesseract-OCR/tesseract.exe"
+# pytesseract.pytesseract.tesseract_cmd = r"D:/programme/Tesseract-OCR/tesseract.exe"
 # print(str(result[0].get("output_jpgfiles")[0]))
 texteImg = pytesseract.image_to_string(Image.open(str(result[0].get("output_jpgfiles")[0])))
 # print(texteImg)
@@ -49,3 +49,4 @@ os.startfile("test.txt")
 #     retourtext.write(texteImg)
 # retourtext.close()
 # os.startfile("test.txt")
+
