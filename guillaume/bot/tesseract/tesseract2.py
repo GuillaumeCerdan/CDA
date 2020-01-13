@@ -19,4 +19,4 @@ def print_pages(pdf_file):
     for img in enumerate(images):
         print(ocr_core(img))
 
-print_pages(pdf_to_img('raa-cut.pdf'))
+print_pages(pdf_to_img('RecueilRAAN07-2019-094du13decembre2019.pdf'))

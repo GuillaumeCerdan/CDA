@@ -15,5 +15,3 @@ for line in fileinput.input(fileToSearch):
     
 
 listurl.pop(0)
-print (listurl)       
-input('\n press enter')
