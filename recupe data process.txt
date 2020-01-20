@@ -1,0 +1,2 @@
+pour recup globale des données faire 1 pdf a la fois pour eviter de tuer le serveur 
+sinon on se fait couper la tete 
