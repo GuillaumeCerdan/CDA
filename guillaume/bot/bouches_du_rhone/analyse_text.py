@@ -17,7 +17,7 @@ for file in os.listdir("bouches_du_rhone_2019"):
     nb_environnement = 0
     for x in range(numPages):
         page = pdfReader.getPage(x).extractText()
-        if ("environnement" in page):
+        if ("Environnement" in page):
             nb_environnement += 1
             suivi[x] = nb_environnement
 
@@ -43,3 +43,8 @@ for file in os.listdir("bouches_du_rhone_2019"):
 # print("Il y a eu {} occurences du mot environnement".format(nb_global))
 # print('\n')
 print(suivi)
+
+
+# smtp.free.fr port 25
+
+# Anachron

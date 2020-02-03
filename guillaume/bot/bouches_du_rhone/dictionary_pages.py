@@ -1,39 +1,34 @@
 import PyPDF2
 import os
 
-iterator = 0
-nb_iteration = 0
-nb_global = 0
+whole_number_pages = 0
+nb_occurences = 0
+
+whole_good_dictionary = {}
+whole_dictionary = []
 
 for file in os.listdir("bouches_du_rhone_2019"):
 
-    print("\n")
-
     suivi = {}
-
-    # if (nb_iteration == 20):
-    #     break
 
     pdfFileObj = open('bouches_du_rhone_2019/' + file, 'rb')
     pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
     numPages = pdfReader.numPages
 
-    iterator += numPages
+    whole_number_pages += numPages
     nb_environnement = 0
 
     for x in range(numPages):
         page = pdfReader.getPage(x).extractText()
         if ("environnement" in page):
-            suivi[x] = suivi.get(x, 0) + page.count("environnement")
+            suivi["Page n°{}".format(x)] = suivi.get("Page n°{}".format(x), 0) + page.count("environnement")
             nb_environnement += page.count("environnement")
-            nb_global += page.count("environnement")
-    
-    nb_iteration += 1
+            nb_occurences += page.count("environnement")
+    if nb_environnement > 0:
+        whole_good_dictionary["Document : {}".format(file)] = suivi
+    whole_dictionary.append(file)
 
-    print(suivi)
-    print(" -- En tout il y en a eu {}".format(nb_environnement))
-    print("_" * 40)
-    print("\n")
-
-print("Sur tous les fichiers, on a trouvé {} occurences".format(nb_global))
-print("Il y a donc en moyenne {} fois 'environnement' dans tous les fichiers".format(nb_global / nb_iteration))
+# print("Sur tous les fichiers, on a trouvé {} occurences".format(nb_occurences))
+# print("Il y a donc en moyenne {} fois 'environnement' dans tous les fichiers".format(nb_occurences / nb_iteration))
+print("Voici la population {}".format(whole_good_dictionary)) 
+print(whole_dictionary)
