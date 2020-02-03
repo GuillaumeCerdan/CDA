@@ -1,6 +1,7 @@
 import pytesseract
 from PIL import Image
 from pdf2jpg import pdf2jpg
+from datetime import date
 import os
 
 
@@ -19,7 +20,8 @@ path = 'D:\\projet\\github\\CDA\\thomas\\bot'
 # Refacto avec format
 # Rajouter dans le readme les pip
 retourtext = open("test.txt","a")
-inputpath = r"RAA-test.pdf"
+# inputpath = r"RAA-test.pdf"
+inputpath = r"test teseract.pdf"
 pytesseract.pytesseract.tesseract_cmd = r"D:/programme/Tesseract-OCR/tesseract.exe"
 
 outputpath = r"temp/"
@@ -32,7 +34,10 @@ result = pdf2jpg.convert_pdf2jpg(inputpath, outputpath, dpi=300) #on garde les 3
 texteImg = pytesseract.image_to_string(Image.open(str(result[0].get("output_jpgfiles")[0])))
 # print(texteImg)
 retourtext = open(r"test.txt","a")
-retourtext.write(texteImg)
+retourtext.write('£££ lu avec tika le {}'.format(date.today()))
+retourtext.write(texteImg.strip())
+texteImg = pytesseract.image_to_string(Image.open(str(result[0].get("output_jpgfiles")[1])))
+retourtext.write(texteImg.strip())
 retourtext.close()
 # print("coucou")
 os.startfile("test.txt")
