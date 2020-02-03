@@ -23,6 +23,7 @@ for line in fileinput.input(fileToSearch):
 
 listurl.pop(0)
 # print (listurl)
+
 test_url = []
 
 #Parcours les urls
