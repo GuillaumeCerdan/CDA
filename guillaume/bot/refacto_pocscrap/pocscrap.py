@@ -6,11 +6,8 @@ import logging
 from os import path
 from datetime import date
 from tqdm import tqdm
-
-print(date.today())
-
 i = 0
-#logging.basicConfig(filename='logs-ardeche.log', filemode='a', level=logging.INFO)
+logging.basicConfig(filename='logs-ardeche.log', filemode='a', level=logging.INFO)
 header = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36'}
 test = "pas d'url trouver"
 url = "http://www.ardeche.gouv.fr/"
@@ -18,10 +15,9 @@ testurl = url
 try:
     requete = requests.get(url, headers = header)
     page = requete.content
-    print("Première connection passée")
 except:
     # faire relever une erreur afin ce verifier l'url de la prefecture ou autre
-    print("Erreur de connection")
+    print("erreur de connection")
     print(requete.status_codes)
 
 # Parser html
@@ -46,10 +42,9 @@ time.sleep(1)
 try:
     requete = requests.get(url, headers = header, allow_redirects=True)
     page = requete.content
-    print("Deuxième connection passée")
 except:
     # faire relever une erreur afin ce verifier l'url de la prefecture ou autre
-    print("Erreur de connection")
+    print("erreur de connection")
     print(requests.status_codes)
 
 soup = BeautifulSoup(page, "html.parser")
@@ -68,10 +63,9 @@ time.sleep(1)
 try:
     requete = requests.get(testurl, headers = header, allow_redirects=True)
     page = requete.content
-    print("Troisième connection passée")
 except:
     # faire relever une erreur afin ce verifier l'url de la prefecture ou autre
-    print("Erreur de connection")
+    print("erreur de connection")
     print(requests.status_codes)
 
 
@@ -98,10 +92,9 @@ for link in tqdm(links):
             try:
                 requete = requests.get(URLversPdf, headers = header, allow_redirects=True)
                 page = requete.content
-                print("Requête passée à l'url : {}".format(URLversPdf))
             except:
                 # faire relever une erreur afin ce verifier l'url de la prefecture ou autre
-                print("Erreur de connection")
+                print("erreur de connection")
                 print(requests.status_codes)
 
                 
@@ -119,11 +112,8 @@ for link in tqdm(links):
                     requete = requests.get(pdf_url, headers = header)
                     page = requete.content
                     # print( str(not(path.exists("pdf_ardeche/" +text_link  + ".pdf"))) +" "+ text_link  + ".pdf")
-                    if (not(path.exists("/etc/scriptsPy/pdf_ardeche/" + text_link  + ".pdf"))):
-                        open("/etc/scriptsPy/pdf_ardeche/" + text_link.replace('>','')  + ".pdf", 'wb').write(page)
+                    if (not(path.exists("pdf_ardeche/" + text_link  + ".pdf"))):
+                        open("pdf_ardeche/" + text_link.replace('>','')  + ".pdf", 'wb').write(page)
                         i+=1
-                        print("Il s'est passé un truc : i = {}".format(i))
-                        
 today = date.today()
-#logging.info('il y a eu '+ str(i) +' pdf deploye le ' + str(today) + " sur le departement de l'ardeche")
-print("Il y a eu "+ str(i) + " pdf déployés le " + str(today) + " sur le département de l'Ardèche")
+logging.info('il y a eu '+ str(i) +' pdf deploye le ' + str(today) + " sur le departement de l'ardeche")
