@@ -6,13 +6,16 @@ import os
 for file in os.listdir("test_metadata"):
     if file.endswith(".pdf"):
         pdfFileObj = open('test_metadata/' + file, 'rb')
+        print('metadata')
         pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
-        texte = pdfReader.read()
+        texte = pdfReader.getPage(0)
+
 
         info = pdfReader.getDocumentInfo()
 
         print(info)
-        print(texte)
+        print('conteniu ')
+        print(texte.extractText())
 input()
 # pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
 

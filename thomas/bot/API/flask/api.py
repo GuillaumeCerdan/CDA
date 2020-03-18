@@ -17,3 +17,7 @@ def name(name):
 
 if __name__ == "__main__":
     app.run()
+
+
+# Voir import sys pour récupérer les paramètres passés en ligne de commande
+# Double linked list

@@ -34,7 +34,7 @@ result = pdf2jpg.convert_pdf2jpg(inputpath, outputpath, dpi=300) #on garde les 3
 texteImg = pytesseract.image_to_string(Image.open(str(result[0].get("output_jpgfiles")[0])))
 # print(texteImg)
 retourtext = open(r"test.txt","a")
-retourtext.write('£££ lu avec tika le {}'.format(date.today()))
+retourtext.write('£££ lu avec tika le {} \n'.format(date.today()))
 retourtext.write(texteImg.strip())
 texteImg = pytesseract.image_to_string(Image.open(str(result[0].get("output_jpgfiles")[1])))
 retourtext.write(texteImg.strip())
