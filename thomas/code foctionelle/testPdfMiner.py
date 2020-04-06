@@ -1,7 +1,7 @@
 
 from io import StringIO
 import os
-from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter#process_pdf
+from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter #process_pdf
 from pdfminer.pdfpage import PDFPage
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
