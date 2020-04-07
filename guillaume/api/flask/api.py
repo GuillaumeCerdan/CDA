@@ -11,10 +11,7 @@ def hello():
     json_url = os.path.join(SITE_ROOT, "data", "data.json")
     data = json.load(open(json_url))
     app.config['JSON_AS_ASCII'] = False
-    if (data != null):
-        return jsonify(data)
-    else:
-        return False
+    return jsonify(data)
 
 # @app.route("/recueils")
 # def recueils():

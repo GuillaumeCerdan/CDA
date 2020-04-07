@@ -6,9 +6,6 @@ nb_global = 0
 suivi = {}
 for file in os.listdir("bouches_du_rhone_2019"):
 
-    if (nb_iteration == 1):
-        break
-
     pdfFileObj = open('bouches_du_rhone_2019/' + file, 'rb')
     pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
     numPages = pdfReader.numPages
@@ -17,9 +14,13 @@ for file in os.listdir("bouches_du_rhone_2019"):
     nb_environnement = 0
     for x in range(numPages):
         page = pdfReader.getPage(x).extractText()
-        if ("Environnement" in page):
+        if ("recyclage" in page):
             nb_environnement += 1
             suivi[x] = nb_environnement
+    if (not (suivi == {})):
+        print(file)
+        print(suivi)
+    suivi = {}
 
     # if (nb_environnement > 0):
     #     print("Dans le fichier {}, nombre de fois que le mot environnement est trouvé {}".format(file, nb_environnement))
@@ -42,7 +43,6 @@ for file in os.listdir("bouches_du_rhone_2019"):
 # print("_" * 30)
 # print("Il y a eu {} occurences du mot environnement".format(nb_global))
 # print('\n')
-print(suivi)
 
 
 # smtp.free.fr port 25

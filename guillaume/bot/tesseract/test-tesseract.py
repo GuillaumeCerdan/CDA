@@ -30,6 +30,6 @@ for file in files:
 
         # print("result : " + str(result[0].get("output_jpgfiles")[0]))
         pytesseract.pytesseract.tesseract_cmd = r"C:/Program Files (x86)/Tesseract-OCR/tesseract.exe"
-        if ("écologie" in pytesseract.image_to_string(Image.open(str(result[0].get("output_jpgfiles")[0]))).lower() or "ecologie" in pytesseract.image_to_string(Image.open(str(result[0].get("output_jpgfiles")[0]))).lower()):
+        if ("recyclage" in pytesseract.image_to_string(Image.open(str(result[0].get("output_jpgfiles")[0]))).lower() or "Recyclage" in pytesseract.image_to_string(Image.open(str(result[0].get("output_jpgfiles")[0]))).lower()):
             print("_" * 40)
             print(inputpath)
