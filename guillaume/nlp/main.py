@@ -1,9 +1,13 @@
+# pip install spacy
+# Puis : python -m spacy download fr_core_news_sm
+# https://www.stat4decision.com/fr/traitement-langage-naturel-francais-tal-nlp/
+
+
 import spacy
 
-nlp = spacy.load("fr_core_news_sm")
+nlp = spacy.load("fr_core_news_md")
 
-test2 = "Bouygues a eu une coupure de réseau à Marseille"
-test = "Paris Hilton séjourne à l'hôtel Hilton à Paris"
+test = "Arrêté n°479 portant sur la déforestation en milieu rurales"
 
 # Retourne tokens (mots)
 def return_token(sentence):
@@ -27,7 +31,5 @@ def morpho_syntaxique(sentence):
 
 
 
-print(entites_nommees(test))
-# pip install spacy
-# Puis : python -m spacy download fr_core_news_sm
-# https://www.stat4decision.com/fr/traitement-langage-naturel-francais-tal-nlp/
+print(return_token(test))
+print(morpho_syntaxique(test))

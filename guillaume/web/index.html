@@ -14,6 +14,16 @@
 <body>
     <script src="script.js"></script>
     <div id="data" class="d-flex-wrap"></div>
+
+    <script>
+        fetch("https://www.getup.agency/dev/react/api.php").then(function(response) {
+            if (response.ok) {
+                alert(JSON.stringify(response));
+            }
+            }).catch(function (error) {
+            alert('Il y a eu un problème avec l\'opération fetch: ' + error.message);
+            });
+    </script>
 </body>
 
 </html>

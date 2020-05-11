@@ -4,6 +4,9 @@ import os
 iterator = 0
 nb_global = 0
 suivi = {}
+
+config = ["dérogation", "espèces", "protégées"]
+
 for file in os.listdir("bouches_du_rhone_2019"):
 
     pdfFileObj = open('bouches_du_rhone_2019/' + file, 'rb')
@@ -14,37 +17,18 @@ for file in os.listdir("bouches_du_rhone_2019"):
     nb_environnement = 0
     for x in range(numPages):
         page = pdfReader.getPage(x).extractText()
-        if ("recyclage" in page):
-            nb_environnement += 1
-            suivi[x] = nb_environnement
+
+        for item in config:
+
+            if (item in page):
+                nb_environnement += 1
+                suivi[x] = "{} : {}".format(nb_environnement, item)
+
     if (not (suivi == {})):
         print(file)
         print(suivi)
     suivi = {}
 
-    # if (nb_environnement > 0):
-    #     print("Dans le fichier {}, nombre de fois que le mot environnement est trouvé {}".format(file, nb_environnement))
-        
-    # else:
-    #     print("Il n'y en a pas dans le fichier {}".format(file))
-    
-    # print("\n")
-    # print("_" * 30)
-    # print("\n")
 
-    
-
-    # nb_global += nb_environnement
-
-# print("Iterator : {}".format(iterator))
-# print("Moyenne : {}".format(iterator / (309 - 85)))
-# print("\n")
-# print("\n")
-# print("_" * 30)
-# print("Il y a eu {} occurences du mot environnement".format(nb_global))
-# print('\n')
-
-
-# smtp.free.fr port 25
-
-# Anachron
+# if pdf not in folder pdf
+# 

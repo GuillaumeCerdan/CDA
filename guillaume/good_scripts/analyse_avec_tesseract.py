@@ -18,6 +18,16 @@ def print_pages(pdf_file):
     for img in enumerate(images):
         print(ocr_core(img))
 
-print_pages(pdf_to_img('raa_no07-2020-012_du11022020-special.pdf'))
-# if ("installations classées" in pdf_to_img('raa_no07-2020-012_du11022020-special.pdf')):
-#     print('il y est !')
+str = pdf_to_img(print_pages('pdf/raa_no07-2020-012_du11022020-special.pdf'))
+
+print(str)
+
+config = ["dérogation", "espèces", "protégées"]
+
+for item in config:
+    if (item in str):
+        print('coucou')
+
+# Dérogation
+# Espèces
+# Protégées
