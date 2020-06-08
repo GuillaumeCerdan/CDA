@@ -29,6 +29,3 @@ for file in os.listdir("bouches_du_rhone_2019"):
         print(suivi)
     suivi = {}
 
-
-# if pdf not in folder pdf
-# 
