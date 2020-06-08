@@ -1,6 +1,5 @@
-
+import os 
 from io import StringIO
-import os
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter #process_pdf
 from pdfminer.pdfpage import PDFPage
 from pdfminer.converter import TextConverter
@@ -31,7 +30,13 @@ def pdf_to_text(pdfname):
 
     return text
 
-for doc in os.listdir("test_metadata"):
-    if doc.endswith(".pdf"):
-        print("test_metadata/{}".format(doc))
-        print(pdf_to_text("test_metadata/{}".format(doc)))
+
+for file in os.listdir("echantillonTestPdf"):
+    print(file)
+    libele = ["forêt","destruction","espèce","environnement","écologie","parc naturel","loup","sanglier","dérogation"]
+    compte = 0 
+    testtext = pdf_to_text("echantillonTestPdf/"+ file)
+    for mot in libele:
+        compte +=  testtext.count(mot)
+        print ("il y a {} fois le mot {}".format(compte, mot))
+    print (compte)

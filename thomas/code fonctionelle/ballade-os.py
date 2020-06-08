@@ -12,12 +12,14 @@ for r, d, f in os.walk(path):
 # for f in files:
 #     print(f)
 
-"""
-path = la variable du chemin ou l'on veut cherhcer les pdf 
-extention = la variable qui selection 'lextention rechercher par default PDF
-return une liste de path vers des pdf a partir de la racine (C:)
-"""
+
 def getAllPdf (path , extention = '.pfd'):
+    '''
+    path = la variable du chemin ou l'on veut cherhcer les pdf 
+    extention = la variable qui selection 'lextention rechercher par default PDF
+    return une liste de path vers des pdf a partir de la racine (C:)
+    '''
+    
     files = []
     # r=root, d=directories, f = files
     for r, d, f in os.walk(path):

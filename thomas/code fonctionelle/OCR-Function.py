@@ -33,6 +33,11 @@ import os
 
 
 def readerPDFImg(inputPath,output = r"temp" ):
+    '''
+    inputPath = le fichier qui est a lire
+    output = le dossier temporaire qui permet la lecture par l'ocr des fichier
+    fonction qui recoit en entré un fichier pdf et qui renvois le fichier en texte  
+    '''
     pytesseract.pytesseract.tesseract_cmd = r"D:/programme/Tesseract-OCR/tesseract.exe"
 
     result = pdf2jpg.convert_pdf2jpg(inputPath, output, dpi=300, pages="ALL") #on garde les 300 dpi pour avoir une meilleur qualité 
