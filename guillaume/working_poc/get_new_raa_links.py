@@ -17,10 +17,10 @@ list_mois = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août',
 
 date_now = datetime.datetime.now()
 
-# if (argv[-1] in list_mois):
-#     month = argv[-1]
-# else:
-#     month = list_mois[date_now.date().month - 1]
+if (argv[-1] in list_mois):
+    month = argv[-1]
+else:
+    month = list_mois[date_now.date().month - 1]
 
 # parser = argparse.ArgumentParser(description='Process some integers.')
 # parser.add_argument('integers', metavar='N', type=int, nargs='+',
@@ -47,9 +47,6 @@ url = list_links[0]
 
 urls_raa = ConnectionHandler.fetchRessourcesLinks('http://www.ardeche.gouv.fr/' + url)
 
-
-# Vaut mieux passer en cmd
-os.system("py .\download_new_raa.py 1")
 
 # Rediriger le stdout du premier script vers le stdin du second script
 
