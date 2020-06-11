@@ -27,5 +27,5 @@ for file in os.listdir("bouches_du_rhone_2019"):
     if (not (suivi == {})):
         print(file)
         print(suivi)
-    suivi = {}
+    suivi = {}  
 

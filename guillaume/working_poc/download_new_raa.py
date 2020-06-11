@@ -5,8 +5,6 @@ from ConnectionHandler import ConnectionHandler
 
 from requests.packages.urllib3.util.retry import Retry
 
-print("script_end opened !")
-
 retry_strategy = Retry(
             total=3,
             status_forcelist=[429, 500, 502, 503, 504],
@@ -24,6 +22,8 @@ for line in lines_in_file:
 
     PdfHandler.insertPdfAt(pdf_location, pdf)
 
+# Vide le fichier links_to_add.txt
+# link_to_fetch.seek(0)
+# link_to_fetch.write("")
+# link_to_fetch.truncate()
 link_to_fetch.close()
-
-open('links_to_add.txt', 'w').close()

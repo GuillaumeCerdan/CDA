@@ -10,8 +10,6 @@ import re
 import json
 
 
-
-
 fp = open('echantillonTestPdf/Recueil RAA N07-2019-001 du 03 janvier 2019 - Spécial tous services.pdf', 'rb')
 rsrcmgr = PDFResourceManager()
 retstr = io.StringIO()
