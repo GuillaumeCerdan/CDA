@@ -7,6 +7,7 @@ from pdfminer.pdfparser import PDFParser
 import io
 import os
 import re
+import json
 
 
 
@@ -58,4 +59,8 @@ for page in doc:
             break
 # print(f'les titres sont \n__________\n{setlisttitre}| {len(listtitre)} | {len(setlisttitre)}\n__________')
 print(dico)
+
+with open('file.txt', 'w', encoding='UTF-8') as file:
+     file.write(json.dumps(dico))
+
 print('fini')
