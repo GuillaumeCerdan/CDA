@@ -37,7 +37,7 @@ links = soup.find_all("a",class_="LienTelecharg", href = True)
 liste_liens = ['http://www.ardeche.gouv.fr/' + link.attrs['href'] for link in links if "pdf" in link.attrs['href'] ]
 liste_lien_inconue = {lien for lien in liste_liens if lien not in set(contenuTxt.split('\n'))}
 
-f = open("lienCrawler.txt", mode='a')
+f = open("lienCrawler.txt", mode='a+')
 for lien in liste_lien_inconue:
     f.write(lien)
     f.write('\n')

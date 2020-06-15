@@ -9,8 +9,8 @@ class ConnectionHandler:
     def __init__(self):
         print('ConnectionHandler inited')
 
-    def getPageContent(url = BasicConfig.url, header = BasicConfig.header):
-        time.sleep(1)
+    def getPageContent(url = BasicConfig.url, header = BasicConfig.header, temporisation = 1):
+        time.sleep(temporisation)
         requete = requests.get(url, headers = header)
         page = requete.content
 

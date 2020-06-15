@@ -28,14 +28,16 @@ for lien in link_to_scrap:
     page = ConnectionHandler.getPageContent(pdf_url)
 
     new_link_name = lien.replace('>','')
+    new_link_name = new_link_name.split('/')
+    file_name  = new_link_name[-1]
     
-    if (not(PdfHandler.doesPdfExistsAt("pdf-ardeche/" + new_link_name  + ".pdf"))):
-        PdfHandler.insertPdfAt("pdf-ardeche/" + new_link_name  + ".pdf", page)
-        print("C'est un nouveau RAA")
-        nb_new_pdfs += 1
-        new_pdfs.append(new_link_name)
-    files.write(lien)
-    files.write("\n")
+    if (not(PdfHandler.doesPdfExistsAt("pdf-ardeche/" +file_name))):
+        if PdfHandler.insertPdfAt("pdf-ardeche/" +file_name, page):
+            print("C'est un nouveau RAA")
+            nb_new_pdfs += 1
+            new_pdfs.append(new_link_name)
+            files.write(lien)
+            files.write("\n")
     
 
 files.close()

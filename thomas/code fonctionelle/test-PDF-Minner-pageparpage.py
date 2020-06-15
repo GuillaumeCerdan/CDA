@@ -56,9 +56,9 @@ for page in doc:
 
             break
 # print(f'les titres sont \n__________\n{setlisttitre}| {len(listtitre)} | {len(setlisttitre)}\n__________')
-print(dico)
 
-with open('file.txt', 'w', encoding='UTF-8') as file:
+
+with open('file.json', 'a+', encoding='UTF-8') as file:
      file.write(json.dumps(dico))
 
 print('fini')

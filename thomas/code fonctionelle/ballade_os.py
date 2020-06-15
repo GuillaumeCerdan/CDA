@@ -13,7 +13,7 @@ for r, d, f in os.walk(path):
 #     print(f)
 
 
-def getAllPdf (path , extention = '.pfd'):
+def getAllPdf (path , extention = '.pdf'):
     '''
     path = la variable du chemin ou l'on veut cherhcer les pdf 
     extention = la variable qui selection 'lextention rechercher par default PDF
@@ -28,4 +28,4 @@ def getAllPdf (path , extention = '.pfd'):
                 files.append(os.path.join(r, file))
     return(files)
 
-print(getAllPdf(path))
+# print(getAllPdf(path))
