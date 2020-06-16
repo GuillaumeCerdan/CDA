@@ -1,0 +1,63 @@
+Autre url pour vue 360 (plus tard) : https://www.chamonix.com/webcam-360-bochard-grands-montets,48-5050932,fr.html
+
+
+sel = ".slides li.flex-active-slide img:not(.lazyload):last-child"
+
+# Sélecteur webcam jQuery(".slides > li.flex-active-slide > img:not(.lazyload):last-child"); --> last-child pour le dernier car il y en a 2
+# https://www.chamonix.com/webcam-bochard,48-5051850,fr.html
+# https://www.chamonix.com/webcam-360-bochard-grands-montets,48-5050932,fr.html
+# https://www.chamonix.com/webcam-parking-grands-montets,48-5052420,fr.html
+# https://www.chamonix.com/webcam-telepherique-grands-montets,48-5051853,fr.html
+
+
+# Sinon : https://www.compagniedumontblanc.fr/webcam/AGM-VueBochardHD.jpg
+
+
+# Sélecteur des remontées ouvertes #conditions-agm #collapseOne tr .droite F
+#  TC BOCHARD
+#  TC PLAN JORAN
+#  TSD HERSE
+#  TS RETOUR PENDANT
+#  TSD TABE
+#  TK GRAND CHOSALET
+#  TK PETIT CHOSALET
+#  TK MARMOTTONS
+#  TK PETIT MARMOTTONS
+#  TPH GRANDS MONTETS
+#  TPH LOGNAN
+
+# Sélecteur pistes ouvertes et remontées ouvertes .col-md-6 h2 b --> Retourne l'int
+# Sélecteur pistes ouvertes et remontées ouvertes .col-md-6 h2 span --> Retourne le nombre en entier
+
+
+# Sélecteur pistes ouvertes #accordion #collapseTwo table tr .droite.HP
+# BABY AUX CHOSALETS
+# ECURIES
+# FORET AUX CHOSALETS
+# PRE DE LOGNAN
+# AROLLES
+# CHOSALETS
+# COQS
+# CROIX DE LOGNAN
+# LIAISON PLAN JORAN
+# MARMOTTONS
+# PRADIAN
+# TABE
+# BOCHARD BAS
+# BOCHARD HAUT
+# COMBES
+# PIERRE A RIC
+# BLANCHOTS
+# CHAMOIS
+# POINT DE VUE
+# PYLONES BAS
+# PYLONES HAUT
+# REMUAZ
+# VARIANTE HOTEL
+# BOARDER CROSS
+# FREERIDE ZONE
+# PARC DVA AGM
+# SUMMIT CROSS
+
+
+#Sélecteur enneigement .infos .col-md-6

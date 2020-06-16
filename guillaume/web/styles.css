@@ -1,0 +1,54 @@
+.mb-10px {
+    margin-bottom: 10px !important;
+} 
+.mr-5px {
+    margin-right: 5px;
+}
+.mt-0px {
+    margin-top: 0px;
+}
+.fs-12 {
+    font-size: 12px !important;
+}
+.fs-10 {
+    font-size: 10px !important;
+}
+
+.d-flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.layout {
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 40%;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 4px 2px -2px;
+    font-family: "adelle-sans", sans-serif;
+    font-weight: 100;
+    flex-grow: 1;
+}
+
+.layout:nth-child(odd) {
+    margin-right: 1%;
+}
+.layout:nth-child(even) {
+    margin-left: 1%;
+}
+
+.white-bck {
+    background-color: #fff;
+}
+
+body {
+    background-color: #e5ded8;
+    max-width: 1170px;
+}
+
+
+/* Layout 1 : https://codepen.io/csb324/pen/MXVaLj */
+
