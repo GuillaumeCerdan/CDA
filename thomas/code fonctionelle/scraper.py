@@ -5,46 +5,42 @@ import datetime
 
 from PdfHandler import PdfHandler
 from ConnectionHandler import ConnectionHandler
+from LoggerHandler import LogHandler 
 
+dossier_pdf = "pdf-ardeche/"
+#  use with 
+with open("lienCrawler.txt", mode = "r"  ,encoding='UTF-8') as f 
+    liste_liens = f.read()
+    liste_liens=set(liste_liens.split('\n'))
 
-f = open("lienCrawler.txt", mode = "r" )
-liste_liens = f.read()
-liste_liens=set(liste_liens.split('\n'))
-f.close()
-files = open('lienScrapper.txt', mode = "r")
-list_link_used = files.read()
-list_link_used = set(list_link_used.split("\n"))
-files.close()
+with open('lienScrapper.txt', mode = "r", encoding='UTF-8') as f
+    list_link_used = f.read()
+    list_link_used = set(list_link_used.split("\n"))
 link_to_scrap = {link for link in liste_liens if link not in list_link_used}
 
 
 nb_new_pdfs = 0
 new_pdfs = []
-files = open('lienScrapper.txt', mode = "a")
-for lien in link_to_scrap:
+# with open
+with open('lienScrapper.txt', mode = "a", encoding='UTF-8') as files
+    for lien in link_to_scrap:
 
-    pdf_url = lien
+        pdf_url = lien
 
-    page = ConnectionHandler.getPageContent(pdf_url)
+        page = ConnectionHandler.getPageContent(pdf_url)
 
-    new_link_name = lien.replace('>','')
-    new_link_name = new_link_name.split('/')
-    file_name  = new_link_name[-1]
-    
-    if (not(PdfHandler.doesPdfExistsAt("pdf-ardeche/" +file_name))):
-        if PdfHandler.insertPdfAt("pdf-ardeche/" +file_name, page):
-            print("C'est un nouveau RAA")
-            nb_new_pdfs += 1
-            new_pdfs.append(new_link_name)
-            files.write(lien)
-            files.write("\n")
-    
+        # new_link_name = lien.replace('>','')
+        # new_link_name = new_link_name.split('/')
+        # file_name  = new_link_name[-1]
+        file_name = ConnectionHandler.get_name_PDF(lien)
 
-files.close()
-if (nb_new_pdfs > 0):
-    if (nb_new_pdfs == 1):
-        print("Il y a eu 1 PDF rajouté")
-        print("Le voici : {}".format(new_pdfs))
-    else:
-        print("Il y a eu {} PDFs rajoutés".format(nb_new_pdfs))
-        print("Les voici : {}".format(new_pdfs))
+        
+        if (not(PdfHandler.doesPdfExistsAt(dossier_pdf +file_name))):
+            if PdfHandler.insertPdfAt(dossier_pdf +file_name, page):
+                nb_new_pdfs += 1
+                files.write(lien)
+                files.write("\n")
+        
+
+
+LogHandler.logger_info(f"il y a eu {nb_new_pdfs} telechargement le {LogHandler.get_date()}")

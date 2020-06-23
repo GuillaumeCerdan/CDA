@@ -69,8 +69,8 @@ class PdfHandler:
                 else:
                     # print (titre)
                     # print(re.findall(r'\d\d-\d\d\d\d-\d\d-\d\d-\d\d\d', titre))
-                    
-                    key = re.findall(r'\d\d-\d\d\d\d-\d\d-\d\d-\d\d\d', titre)
+                    # le regex c'est departement - année - mois - jours - ID 
+                    key = re.findall(r'\d{2}-\d{4}-\d{2}-\d{2}-\d{3}', titre)
                     # print(key)
                     if len(key) ==1:
                         dico[key[0]] =  page
@@ -80,21 +80,22 @@ class PdfHandler:
 
                     break
         return dico
-    
-    def is_in_theme(page, list_word_theme = ["environement","chasse", "animaux",  "animal","acca", "oncfs" , "louveterie","gibier","faune"]  ):
+
+    # TODO fonction pour l'apparition des pdf plus précis pour les membre 
+    def is_in_theme(page, list_word_theme = ["environnement","chasse", "animaux",  "animal","acca", "oncfs" , "louveterie","gibier","faune"]  ):
+        # logger le fait que c'est dans le theme + relever les theme
+        match = []
         for word in list_word_theme:
             if word in page.lower():
-                print('find one')
-                return True
-            else:
-                print('not found')
-        return False
+                # print('find one')
+                match.append(word)
+        return match
 
     def getAllPdf (path , extention = '.pdf'):
         '''
         path = la variable du chemin ou l'on veut cherhcer les pdf 
         extention = la variable qui selection 'lextention rechercher par default PDF
-        return une liste de path vers des pdf a partir de la racine (C:)
+        return une liste de path vers des pdf a partir de la racine 
         '''
             
         files = []

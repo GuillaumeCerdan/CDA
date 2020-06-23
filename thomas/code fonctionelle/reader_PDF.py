@@ -1,11 +1,10 @@
 from PdfHandler import PdfHandler
-import ballade_os
+import get_file
 import json
 
 
-all_pdf = ballade_os.getAllPdf("pdf-ardeche/")
-for url_pdf in all_pdf:
-    print(url_pdf)
+all_url_pdf = get_file.getAllfile("pdf-ardeche/")
+for url_pdf in all_url_pdf:
     raa = PdfHandler.get_content_pdf(url_pdf)
     for arrete in raa:
         if PdfHandler.is_in_theme(raa[arrete]):
