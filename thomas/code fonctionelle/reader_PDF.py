@@ -12,5 +12,5 @@ for url_pdf in all_url_pdf:
         if FileHandler.is_in_theme(raa[arrete]):
             with open('arreteValide.json', 'a+', encoding='UTF-8') as file:
                 file.write(json.dumps({arrete: raa[arrete]}))
-                requests.post(url_post, data={"id_arrete":arrete, "extrait":raa[arrete]})
-
+                requests.post(url_post, data={"id_arrete": arrete,
+                                              "extrait": raa[arrete]})

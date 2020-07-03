@@ -25,13 +25,13 @@ class ConnectionHandler:
             LogHandler.logger_warning(f"erreur de connection vers le lien {url} il y a une erreur {requete.status_code}")
         requete.close()
         return page
-  
+
     def get_name_PDF(strurl):
         """
         methode qui permet de recupere le nom du
         pdf dans l'url vers le pdf
         -------------------------------------------------------
-        strurl = l'url vers le pdf 
+        strurl = l'url vers le pdf
         -------------------------------------------------------
         retourne le nom du RAA
         """
@@ -45,7 +45,7 @@ class ConnectionHandler:
         methode qui permet de generer le mois et l'années courante
         -------------------------------------------------------
         -------------------------------------------------------
-        retourne un tuple avec le mois est l'année courente 
+        retourne un tuple avec le mois est l'année actuelle
         """
         list_mois = [
                     'Janvier',

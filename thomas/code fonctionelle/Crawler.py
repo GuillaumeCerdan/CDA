@@ -20,7 +20,7 @@ page = ConnectionHandler.get_page_content(domaine + url)
 
 soup = BeautifulSoup(page, "html.parser")
 # with est un contexte manager
-with open("lienCrawler.txt", mode='r+', encoding='UTF-8' ) as f:
+with open("lienCrawler.txt", mode='r+', encoding='UTF-8') as f:
     contenu_txt = f.read()
 
 links = soup.find_all("a", class_="LienTelecharg", href=True)

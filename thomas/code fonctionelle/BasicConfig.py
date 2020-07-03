@@ -8,5 +8,5 @@ class BasicConfig:
     url = "http://www.ardeche.gouv.fr/recueil-des-actes-administratifs-r791.html"
     domaine = "http://www.ardeche.gouv.fr/"
 
-    def __init__(self) :
+    def __init__(self):
         print("BasicConfig inited")
