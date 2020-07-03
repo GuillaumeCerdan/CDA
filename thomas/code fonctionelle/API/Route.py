@@ -2,34 +2,28 @@ import flask
 from DatabaseHandler import DatabaseHandler
 import json
 
-
-db_handler = DatabaseHandler('appli-cda', 'root', '','localhost')
+# logger ce qui est passer
+db_handler = DatabaseHandler('appli-cda', 'root', '', 'localhost')
 app = flask.Flask(__name__)
 
-@app.route("/")
-def accueil():
-    return ('page accueil')
 
-@app.route("/get_all")
+@app.route("/get_all", methods=['GET'])
 def get_all():
     return(json.dumps(db_handler.get_all_data()))
 
-@app.route("/add_prefecture")
-def add_prefecture():
-    if flask.request.method=='POST':
-        # do something
+
+@app.route("/add_arrete", methods=['GET', 'POST'])
+def add_arrete():
+    if flask.request.method == 'POST':
+        id_arrete = flask.request.form['id_arrete']
+        extrait = flask.request.form['extrait']
+        # score = flask.request.form['score']
+        # titre_raa = flask.request.form['titre_raa']
+        db_handler.add_arrete(id_arrete, extrait)
         return(1)
     else:
         return (0)
 
-@app.route("/add_raa")
-def add_raa():
-    return('WIP')
-
-
-@app.route("/add_arrete")
-def add_arrete():
-    return('WIP')
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

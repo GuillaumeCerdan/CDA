@@ -1,56 +1,33 @@
 
 from bs4 import BeautifulSoup
-import os
-import datetime
-
-from PdfHandler import PdfHandler
 from ConnectionHandler import ConnectionHandler
 
-# Date Handler
-list_mois = [
-            'Janvier',
-            'Février',
-            'Mars',
-            'Avril',
-            'Mai',
-            'Juin',
-            'Juillet',
-            'Août',
-            'Septembre',
-            'Octobre',
-            'Novembre',
-            'Décembre',
-            ]
 
-date_now = datetime.datetime.now()
-month = list_mois[date_now.date().month - 1]
+domaine = 'http://www.ardeche.gouv.fr/'
+month, year = ConnectionHandler.get_date()
 
-year = date_now.date().year
-
-
-page = ConnectionHandler.getPageContent()
+page = ConnectionHandler.get_page_content()
 soup = BeautifulSoup(page, "html.parser")
 
 
-links = soup.find_all("a", href = True)
-# print("Connecté à la liste des liste des RAA du mois de {}".format(month))
+links = soup.find_all("a", href=True)
 
 
-list_links = [link.attrs['href'] for link in links if link.string == "{} {}".format(month,year)]
+list_links = [link.attrs['href'] for link in links if link.string == f"{month} {year}"]
 url = list_links[0]
 
-page = ConnectionHandler.getPageContent('http://www.ardeche.gouv.fr/' + url)
+page = ConnectionHandler.get_page_content(domaine + url)
 
 soup = BeautifulSoup(page, "html.parser")
-
+# with est un contexte manager
 with open("lienCrawler.txt", mode='r+', encoding='UTF-8' ) as f:
-    contenuTxt = f.read()
+    contenu_txt = f.read()
 
-links = soup.find_all("a",class_="LienTelecharg", href = True)
-liste_liens = ['http://www.ardeche.gouv.fr/' + link.attrs['href'] for link in links if "pdf" in link.attrs['href'] ]
-liste_lien_inconnu = {lien for lien in liste_liens if lien not in set(contenuTxt.split('\n'))}
+links = soup.find_all("a", class_="LienTelecharg", href=True)
+liste_liens = [domaine + link.attrs['href'] for link in links if "pdf" in link.attrs['href']]
+liste_liens_inconnus = {lien for lien in liste_liens if lien not in set(contenu_txt.split('\n'))}
 
-with  open("lienCrawler.txt", mode='a+' , encoding='UTF-8') as f :
-    for lien in liste_lien_inconnu:
+with open("lienCrawler.txt", mode='a+', encoding='UTF-8') as f:
+    for lien in liste_liens_inconnus:
         f.write(lien)
         f.write('\n')

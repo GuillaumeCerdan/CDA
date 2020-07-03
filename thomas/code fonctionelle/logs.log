@@ -1,3 +1,10 @@
 INFO:root:il y a eu 0 le
 INFO:root:il y a eu 0 le
 INFO:root:il y a eu 0 le 2020-06-19 09:27:15.426533
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.ardeche.gouv.fr:80
+DEBUG:urllib3.connectionpool:http://www.ardeche.gouv.fr:80 "GET /recueil-des-actes-administratifs-r791.html HTTP/1.1" 200 11622
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.ardeche.gouv.fr:80
+DEBUG:urllib3.connectionpool:http://www.ardeche.gouv.fr:80 "GET /juillet-2020-a9877.html HTTP/1.1" 200 10693
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.ardeche.gouv.fr:80
+DEBUG:urllib3.connectionpool:http://www.ardeche.gouv.fr:80 "GET /IMG/pdf/recueil-raa_no07-2020-061-du_02_juillet_2020-special_1_.pdf HTTP/1.1" 200 442241
+INFO:root:2020-07-02 21:57:54.115301  1 téléchargements

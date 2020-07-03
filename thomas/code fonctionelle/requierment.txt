@@ -1,0 +1,16 @@
+ths application is run with python 3.7 or higher
+this is all the pip needed for the application to work propely 
+
+we need the python package manager pip
+
+then we need to install this package with the commande : "pip install <package name>"
+bs4
+datetime
+logging
+pdfminer
+json 
+re 
+flask
+time
+requests 
+

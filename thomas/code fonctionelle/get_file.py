@@ -17,4 +17,4 @@ def getAllfile (path , extention = '.pdf'):
                 files.append(os.path.join(r, file))
     return(files)
 
-# print(getAllPdf(path))
+# print(get_all_pdf(path))
